@@ -1,0 +1,14 @@
+{
+  "name": "@mvue3/reactivity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "buildOptions": {
+    "name": "VueReactivity",
+    "format": [
+      "esm-bundler",
+      "cjs",
+      "global"
+    ]
+  }
+}
