@@ -5,7 +5,7 @@ const execa = require('execa')
 const dirs = [] // [ 'reactivity', 'shared' ]
 // 遍历 packages 目录，找出里面的一级文件夹
 const packages = fs.readdirSync('./packages').forEach(file => {
-  if (fs.statSync(`./packages/${file}`).isDirectory()) {
+  if (fs.statSync(`./packages/${file}`).isDirectory() && file !== 'example') {
     dirs.push(file)
   }
 })

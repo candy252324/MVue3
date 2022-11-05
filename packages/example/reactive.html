@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../reactivity/dist/VueReactivity.global.js"></script>
+    <script>
+      const { reactive, readonly, shallowReactive, shallowReadonly } = VueReactivity
+      const obj = { name: 'cc', list: { age: 30 } }
+      const state = shallowReadonly(obj)
+      window.state = state
+      console.log(state)
+      console.log(state.list)
+      state.name = 'xxxx'
+      state.list.age = 20
+      console.log(state)
+      console.log(state.list)
+    </script>
+  </body>
+</html>
