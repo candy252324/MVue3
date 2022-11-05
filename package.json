@@ -1,5 +1,5 @@
 {
-  "name": "mvue3",
+  "name": "vue",
   "private": "true",
   "version": "1.0.0",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "node scripts/build.js",  
+    "build": "node scripts/build.js",
     "dev": "node scripts/dev.js"
   },
   "repository": "https://github.com/candy252324/MVue3.git",

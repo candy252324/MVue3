@@ -1,6 +1,6 @@
 import fs from 'fs'
-// import path from 'path'
-// import typescript from 'rollup-plugin-typescript2' // 用于解析ts
+import path from 'path'
+import typescript from 'rollup-plugin-typescript2' // 用于解析ts
 const target = process.env.TARGET // reactivity
 const fullTarget = `./packages/${target}` // ./packages/reactivity
 const jsonData = require(`./packages/${target}/package.json`) // 读取 ./packages/reactivity/package.json文件内容
@@ -21,14 +21,15 @@ const outputOptions = {
   },
 }
 function createConfig(output) {
+  output.name = buildOptions.name
   output.sourcemap = true
   return {
-    input: `${fullTarget}/index.ts`,
+    input: `${fullTarget}/src/index.ts`,
     output,
     plugins: [
-      // typescript({
-      //   tsConfig: path.resolve(__dirname, 'tsconfig.json'),
-      // }),
+      typescript({
+        tsConfig: path.resolve(__dirname, 'tsconfig.json'),
+      }),
     ],
   }
 }
