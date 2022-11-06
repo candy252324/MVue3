@@ -11,7 +11,7 @@
     <script>
       const { reactive, readonly, shallowReactive, shallowReadonly } = VueReactivity
       const obj = { name: 'cc', list: { age: 30 } }
-      const state = shallowReadonly(obj)
+      const state = reactive(obj)
       window.state = state
       console.log(state)
       console.log(state.list)
