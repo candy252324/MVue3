@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="../reactivity/dist/VueReactivity.global.js"></script>
+    <script>
+      const { reactive, effect } = VueReactivity
+      const obj = { name: 'cxx', age: 30, list: ['aaa', 'bbb'] }
+      const arr = [11, 22, 33]
+      const state1 = reactive(obj)
+      const state2 = reactive(arr)
+
+      effect(() => {
+        state1.name
+        state1.list[0]
+        console.log('fn1')
+      })
+      effect(() => {
+        state1.list[0]
+        console.log('fn2')
+      })
+      effect(() => {
+        state1.list[5]
+        console.log('fn3')
+      })
+      // effect(() => {
+      //   state1.name
+      //   state1.list[0]
+      //   console.log('fn1')
+      // })
+      // effect(() => {
+      //   state1.list[5]
+      //   console.log('fn2')
+      // })
+      // effect(() => {
+      //   app.innerHTML = state1.list
+      //   console.log('fn3')
+      // })
+      // effect(() => {
+      //   state1.list.length
+      //   console.log('fn4')
+      // })
+
+      setTimeout(() => {
+        state1.list.length = 0
+        // state1.list[5] = 10
+        // state1.list.length = 0
+        // state.list[30] = 100
+        // state.name = 'cddd'
+        // console.log(state.list)
+        // state.name = 'new Value'
+        // state.name = 'new Value'
+        // state.name = 'new Value'
+        // state.age = 30 // 是响应式的，但是没被收集依赖
+        // state2.hhh = 300
+      }, 1000)
+    </script>
+  </body>
+</html>
